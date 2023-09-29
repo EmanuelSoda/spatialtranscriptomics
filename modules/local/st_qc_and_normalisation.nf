@@ -22,7 +22,7 @@ process ST_QC_AND_NORMALISATION {
 
     input:
     path(report)
-    tuple val(meta), path(st_raw, stageAs: "adata_raw.h5ad")
+    tuple val(meta), path(st_raw, stageAs: "st_adata_raw.h5ad")
 
     output:
     tuple val(meta), path("st_adata_norm.h5ad")           , emit: st_data_norm
