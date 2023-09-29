@@ -16,7 +16,7 @@ fileNameST = None
 resolution = 1
 saveFileST = None
 
-rawAdata = None #Name of the h5ad file
+rawAdata = 'adata_raw.h5ad' #None #Name of the h5ad file
 pltFigSize = 6 #Figure size
 minCounts = 500 #Min counts per spot
 minGenes = 250 #Min genes per spot
