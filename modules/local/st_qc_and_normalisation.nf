@@ -49,5 +49,9 @@ process ST_QC_AND_NORMALISATION {
         -P nameDataNorm:st_adata_norm.h5ad
 
     cat <<-END_VERSIONS > versions.yml
+    "${task.process}":
+        quarto: \$(quarto -v)
+        scanpy: \$(python -c "import scanpy; print(scanpy.__version__)")
+    END_VERSIONS
     """
 }
