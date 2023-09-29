@@ -16,7 +16,7 @@ workflow ST_PREPROCESS {
     //
     // Report files
     //
-    report = file("${projectDir}/bin/st_qc_and_normalisation.qmd")
+    report = file("${projectDir}/bin/st_qc_and_normalisation.ipynb")
 
     //
     // Spatial pre-processing
