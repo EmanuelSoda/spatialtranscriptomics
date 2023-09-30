@@ -77,12 +77,12 @@ p = sns.distplot(st_adata.obs["n_genes_by_counts"][st_adata.obs["n_genes_by_coun
 # Remove spots outside tissue
 st_adata = st_adata[st_adata.obs["in_tissue"] == 1]
 
-sc.pp.filter_cells(st_adata, min_counts=minCounts)
+#sc.pp.filter_cells(st_adata, min_counts=minCounts)
 #sc.pp.filter_cells(st_adata, max_counts=maxCounts)
-sc.pp.filter_cells(st_adata, min_genes=minGenes)
+#sc.pp.filter_cells(st_adata, min_genes=minGenes)
 #st_adata = st_adata[st_adata.obs["pct_counts_mt"] < 20]
 print(f"#cells after MT filter: {st_adata.n_obs}")
-sc.pp.filter_genes(st_adata, min_cells=minCells)
+#sc.pp.filter_genes(st_adata, min_cells=minCells)
 print("Filtered out spots outside tissue:", st_adata.shape)
 ```
 
@@ -102,11 +102,11 @@ st_adata.write(nameDataPlain)
 ```
 
 ```{python}
-#sc.pp.normalize_total(st_adata, inplace=True)
-#sc.pp.log1p(st_adata)
-#sc.pp.highly_variable_genes(st_adata, flavor="seurat", n_top_genes=2000)
+sc.pp.normalize_total(st_adata, inplace=True)
+sc.pp.log1p(st_adata)
+sc.pp.highly_variable_genes(st_adata, flavor="seurat", n_top_genes=2000)
 ```
 
 ```{python}
-#st_adata.write(nameDataNorm)
+st_adata.write(nameDataNorm)
 ```
