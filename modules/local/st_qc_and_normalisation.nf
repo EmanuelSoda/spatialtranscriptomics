@@ -35,6 +35,8 @@ process ST_QC_AND_NORMALISATION {
 
     script:
     """
+    echo 'REPORT FILE:    ${report}'
+    echo 'RAW DATA:    ${st_raw}'
     quarto render ${report} \
         --output st_qc_and_normalisation.html \
         -P rawAdata:${st_raw} \
