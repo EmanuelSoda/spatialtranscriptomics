@@ -64,6 +64,10 @@ st_adata
 ## QC and preprocessing
 
 We perform some basic filtering of spots based on total counts and expressed genes
+```{python}
+sc.pl.violin(st_adata, ['n_genes_by_counts', 'total_counts', 'pct_counts_mt'],
+             jitter=0.4, groupby = 'library_id', rotation= 45)
+```
 
 ```{python}
 fig, axs = plt.subplots(2, 2, figsize=(8, 7))
@@ -72,17 +76,21 @@ p = sns.distplot(st_adata.obs["total_counts"][st_adata.obs["total_counts"] < his
 p = sns.distplot(st_adata.obs["n_genes_by_counts"], kde=True, bins=histplotQCbins, ax=axs[1, 0])
 p = sns.distplot(st_adata.obs["n_genes_by_counts"][st_adata.obs["n_genes_by_counts"] < histplotQCminGeneCounts], kde=True, bins=histplotQCbins, ax=axs[1, 1])
 ```
+We show the data on the spatial axis 
+```{python}
+sc.pl.spatial(adata[adata.obs.library_id == library,:], library_id=library, color = ["total_counts", "n_genes_by_counts",'pct_counts_mt'])
+```
 
 ```{python}
 # Remove spots outside tissue
 st_adata = st_adata[st_adata.obs["in_tissue"] == 1]
 
-#sc.pp.filter_cells(st_adata, min_counts=minCounts)
-#sc.pp.filter_cells(st_adata, max_counts=maxCounts)
-#sc.pp.filter_cells(st_adata, min_genes=minGenes)
-#st_adata = st_adata[st_adata.obs["pct_counts_mt"] < 20]
+sc.pp.filter_cells(st_adata, min_counts=minCounts)
+sc.pp.filter_cells(st_adata, max_counts=maxCounts)
+sc.pp.filter_cells(st_adata, min_genes=minGenes)
+st_adata = st_adata[st_adata.obs["pct_counts_mt"] < 20]
 print(f"#cells after MT filter: {st_adata.n_obs}")
-#sc.pp.filter_genes(st_adata, min_cells=minCells)
+sc.pp.filter_genes(st_adata, min_cells=minCells)
 print("Filtered out spots outside tissue:", st_adata.shape)
 ```
 
