@@ -37,6 +37,7 @@ process ST_QC_AND_NORMALISATION {
     """
     echo 'PWD:    '
     pwd
+    ls -l
     quarto render ${report} \
         --output st_qc_and_normalisation.html \
         -P rawAdata:${st_raw} \
