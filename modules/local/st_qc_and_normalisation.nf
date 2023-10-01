@@ -35,8 +35,8 @@ process ST_QC_AND_NORMALISATION {
 
     script:
     """
-    chmod 774  ${report}
-    chmod 774  ${st_raw}
+    chmod 777  ${report}
+    chmod 777  ${st_raw}
     quarto render ${report} \
         --output st_qc_and_normalisation.html \
         -P rawAdata:${st_raw} \
