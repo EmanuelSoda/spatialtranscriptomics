@@ -66,7 +66,7 @@ st_adata
 We perform some basic filtering of spots based on total counts and expressed genes
 ```{python}
 sc.pl.violin(st_adata, ['n_genes_by_counts', 'total_counts', 'pct_counts_mt'],
-             jitter=0.4, groupby = 'library_id', rotation= 45)
+             jitter=0.4, rotation= 45)
 ```
 
 ```{python}
@@ -78,7 +78,7 @@ p = sns.distplot(st_adata.obs["n_genes_by_counts"][st_adata.obs["n_genes_by_coun
 ```
 We show the data on the spatial axis 
 ```{python}
-sc.pl.spatial(adata[adata.obs.library_id == library,:], library_id=library, color = ["total_counts", "n_genes_by_counts",'pct_counts_mt'])
+sc.pl.spatial(st_adata, color = ["total_counts", "n_genes_by_counts",'pct_counts_mt'])
 ```
 
 ```{python}
