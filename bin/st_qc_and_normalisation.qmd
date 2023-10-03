@@ -81,6 +81,11 @@ We show the data on the spatial axis
 sc.pl.spatial(st_adata, color = ["total_counts", "n_genes_by_counts",'pct_counts_mt'])
 ```
 
+We show the most expressed genes in the dataset
+```{python}
+sc.pl.highest_expr_genes(st_adata, n_top=20)
+```
+
 ```{python}
 # Remove spots outside tissue
 st_adata = st_adata[st_adata.obs["in_tissue"] == 1]
