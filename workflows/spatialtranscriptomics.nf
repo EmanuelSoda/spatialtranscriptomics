@@ -132,10 +132,10 @@ workflow ST {
     //
     // SUBWORKFLOW: Post-processing and reporting
     //
-    ST_POSTPROCESS (
-        ST_PREPROCESS.out.st_data_norm
-    )
-    ch_versions = ch_versions.mix(ST_POSTPROCESS.out.versions)
+    //ST_POSTPROCESS (
+    //    ST_PREPROCESS.out.st_data_norm
+    //)
+    //ch_versions = ch_versions.mix(ST_POSTPROCESS.out.versions)
 
     //
     // MODULE: Pipeline reporting
