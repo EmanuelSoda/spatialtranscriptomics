@@ -90,12 +90,12 @@ sc.pl.highest_expr_genes(st_adata, n_top=20)
 # Remove spots outside tissue
 st_adata = st_adata[st_adata.obs["in_tissue"] == 1]
 
-sc.pp.filter_cells(st_adata, min_counts=minCounts)
+#sc.pp.filter_cells(st_adata, min_counts=minCounts)
 #sc.pp.filter_cells(st_adata, max_counts=maxCounts)
-sc.pp.filter_cells(st_adata, min_genes=minGenes)
-st_adata = st_adata[st_adata.obs["pct_counts_mt"] < 20]
+#sc.pp.filter_cells(st_adata, min_genes=minGenes)
+#st_adata = st_adata[st_adata.obs["pct_counts_mt"] < 20]
 print(f"#cells after MT filter: {st_adata.n_obs}")
-sc.pp.filter_genes(st_adata, min_cells=minCells)
+#sc.pp.filter_genes(st_adata, min_cells=minCells)
 print("Filtered out spots outside tissue:", st_adata.shape)
 ```
 
