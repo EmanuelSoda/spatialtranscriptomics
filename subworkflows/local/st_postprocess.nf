@@ -3,7 +3,7 @@
 //
 
 include { ST_SPATIAL_DE } from '../../modules/local/st_spatial_de'
-include { ST_CLUSTERING } from '../../modules/local/st_clustering'
+//include { ST_CLUSTERING } from '../../modules/local/st_clustering'
 
 workflow ST_POSTPROCESS {
 
@@ -32,14 +32,14 @@ workflow ST_POSTPROCESS {
     //
     // Spatial differential expression
     //
-    ST_SPATIAL_DE (
-        report_spatial_de,
-        ST_CLUSTERING.out.st_adata_processed
-    )
-    ch_versions = ch_versions.mix(ST_SPATIAL_DE.out.versions)
+    //ST_SPATIAL_DE (
+    //    report_spatial_de,
+    //    ST_CLUSTERING.out.st_adata_processed
+    //)
+    //ch_versions = ch_versions.mix(ST_SPATIAL_DE.out.versions)
 
-    emit:
-    spatial_degs    = ST_SPATIAL_DE.out.degs    // channel: [ val(sample), csv ]
+    //emit:
+    //spatial_degs    = ST_SPATIAL_DE.out.degs    // channel: [ val(sample), csv ]
 
-    versions        = ch_versions               // channel: [ versions.yml ]
+    //versions        = ch_versions               // channel: [ versions.yml ]
 }
