@@ -18,7 +18,7 @@ saveFileST = None
 
 rawAdata = None #Name of the h5ad file
 pltFigSize = 6 #Figure size
-minCounts = 500 #Min counts per spot
+#minCounts = 500 #Min counts per spot
 minGenes = 250 #Min genes per spot
 minCells = 1 #Min cells per gene
 histplotQCmaxTotalCounts = 10000 #Max total counts
@@ -91,7 +91,7 @@ sc.pl.highest_expr_genes(st_adata, n_top=20)
 st_adata = st_adata[st_adata.obs["in_tissue"] == 1]
 
 sc.pp.filter_cells(st_adata, min_counts=minCounts)
-sc.pp.filter_cells(st_adata, max_counts=maxCounts)
+#sc.pp.filter_cells(st_adata, max_counts=maxCounts)
 sc.pp.filter_cells(st_adata, min_genes=minGenes)
 st_adata = st_adata[st_adata.obs["pct_counts_mt"] < 20]
 print(f"#cells after MT filter: {st_adata.n_obs}")
