@@ -59,7 +59,7 @@ include { ST_READ_DATA } from '../modules/local/st_read_data'
 include { INPUT_CHECK    } from '../subworkflows/local/input_check'
 include { SPACERANGER    } from '../subworkflows/local/spaceranger'
 include { ST_PREPROCESS  } from '../subworkflows/local/st_preprocess'
-include { ST_POSTPROCESS } from '../subworkflows/local/st_postprocess'
+//include { ST_POSTPROCESS } from '../subworkflows/local/st_postprocess'
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
